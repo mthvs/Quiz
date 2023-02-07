@@ -1,0 +1,63 @@
+{
+    "id": 1,
+    "title": "Geografia",
+    "perguntas": [
+      {
+        "id": 1,
+        "question": "Em área (km²), o Brasil é aproximadamente quantas vezes maior que Portugal?",
+        "options": [
+          {
+            "id": 1,
+            "text": "3 vezes"
+          },
+          {
+            "id": 2,
+            "text": "18 vezes"
+          },
+          {
+            "id": 3,
+            "text": "96 vezes"
+          }
+        ],
+        "answer_id": 3
+      },
+      {
+        "id": 2,
+        "question": "O maior oceano da Terra é o...",
+        "options": [
+          {
+            "id": 4,
+            "text": "Oceano Atlântico"
+          },
+          {
+            "id": 5,
+            "text": "Oceano Glacial Antártico"
+          },
+          {
+            "id": 6,
+            "text": "Oceano Pacífico"
+          }
+        ],
+        "answer_id": 6
+      },
+      {
+        "id": 3,
+        "question": " O rio São Francisco é popularmente conhecido como:",
+        "options": [
+          {
+            "id": 7,
+            "text": "Velho Chico"
+          },
+          {
+            "id": 8,
+            "text": "Franchico"
+          },
+          {
+            "id": 9,
+            "text": "Chiquinho do Brasil"
+          }
+        ],
+        "answer_id": 7
+      }
+    ]
+  }

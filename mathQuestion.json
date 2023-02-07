@@ -1,0 +1,63 @@
+{
+    "id": 2,
+    "title": "Matematica",
+    "perguntas": [
+      {
+        "id": 1,
+        "question": "Fazer uma estimativa significa..",
+        "options": [
+          {
+            "id": 1,
+            "text": "calcular a altura de um retângulo"
+          },
+          {
+            "id": 2,
+            "text": "fazer um cálculo aproximado de algo"
+          },
+          {
+            "id": 3,
+            "text": "somar duas matrizes"
+          }
+        ],
+        "answer_id": 2
+      },
+      {
+        "id": 2,
+        "question": "O que é aritmética?",
+        "options": [
+          {
+            "id": 4,
+            "text": "parte da matemática que estuda as figuras planas"
+          },
+          {
+            "id": 5,
+            "text": "parte da matemática que estuda números e operações"
+          },
+          {
+            "id": 6,
+            "text": " parte da matemática que estuda os círculos"
+          }
+        ],
+        "answer_id": 4
+      },
+      {
+        "id": 3,
+        "question": "O que é o diâmetro?",
+        "options": [
+          {
+            "id": 7,
+            "text": "medida da diagonal de um retângulo"
+          },
+          {
+            "id": 8,
+            "text": "medida equivalente à metade do raio de uma circunferência"
+          },
+          {
+            "id": 9,
+            "text": "segmento de reta que passa pelo centro e que une dois pontos da circuferencia do circulo"
+          }
+        ],
+        "answer_id": 9
+      }
+    ]
+  }

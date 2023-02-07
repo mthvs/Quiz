@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css')}}"/>
+</head>
+<body>
+    <div class="corpo">
+        <div class="menu" id="menu">
+            <h1>Menu de Escolhas:</h1>
+            <div class="botoes">
+                <button class="btn btn-primary" id="historyButton">Historia</button>
+       
+                <button class="btn btn-primary" id="mathButton">Matematica</button>
+    
+                <button class="btn btn-primary" id="geographyButton">Geografia</button>
+     
+                <button class="btn btn-primary" id="worldButton">Mundo</button>
+    
+                <button class="btn btn-primary" id="computingButton">Informatica</button>
+            </div>
+        </div>
+    
+    <div id="containerQuiz">
+        <div>
+            <button class="hide" id="menuButton">Menu</button>
+            <button class="hide" id="proxButton">Proximo</button>
+        </div>
+    </div>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+
+</html>
