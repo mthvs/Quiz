@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from quizFactory import QuizFactory
 from temas import Temas
 from quiz import NumberResponse
-from quiz import ComandoRespotas
+from quiz import ComandoRespotas, ComandoRespotasEr
 from flask import jsonify
 
 app = Flask(__name__)
@@ -18,11 +18,16 @@ def return_quiz():
 @app.route('/resultado', methods= ['POST'])
 def result():
     resultado = request.form["resultado"]
-    repostas = NumberResponse(resultado)
+    repostas = NumberResponse(resultado,"")
     comando = ComandoRespotas(repostas)
-   
     return f"{comando.executa()}"
 
+@app.route('/respostasErradas', methods= ['POST'])
+def respostasEr():
+    respostasErradas = request.form["respostasErradas"]
+    respostasEr = NumberResponse("",respostasErradas)
+    comando2 = ComandoRespotasEr(respostasEr)
+    return f"{comando2.executa()}"
 
 
 @app.route('/', methods= ['GET'])

@@ -1,19 +1,17 @@
 from temas import Temas
-from quiz import historia, matematica, geografia, informatica, mundo
+from quiz import Quiz,history,math,geography,world,computing,ContentStorage
 
 #Padrao factory usado para separar os temas para que seja retornado apenas o tema escolhido pelo usuário
 class QuizFactory():
 
     def Quiz(tipo):
         if tipo == Temas.Historia:
-            print('estou em historia')
-            return historia
+            return Quiz(history['id'],history['title'],ContentStorage.ReturnContentSpecifiedArq(tipo))
         elif tipo == Temas.Matematica:
-            print('estou matematica')
-            return matematica
+            return Quiz(math['id'],math['title'],ContentStorage.ReturnContentSpecifiedArq(tipo))
         elif tipo == Temas.Geografia:
-            return geografia
+            return Quiz(geography['id'],geography['title'],ContentStorage.ReturnContentSpecifiedArq(tipo))
         elif tipo == Temas.Informatica:
-            return informatica
+            return Quiz(computing['id'],computing['title'],ContentStorage.ReturnContentSpecifiedArq(tipo))
         elif tipo == Temas.Mundo:
-            return mundo
+            return Quiz(world['id'],world['title'],ContentStorage.ReturnContentSpecifiedArq(tipo))

@@ -24,8 +24,9 @@ class Comando():
         pass
 
 class NumberResponse():
-    def __init__(self,numRespotasCertas):
+    def __init__(self,numRespotasCertas,respoatasEr):
         self.numRespotasCertas = numRespotasCertas
+        self.respoatasEr= respoatasEr
         pass
 
     def responderUsuario(self):
@@ -37,6 +38,31 @@ class NumberResponse():
             return "Parabens voce quase acertou tudo"
         elif self.numRespotasCertas == "3":
             return "Parabens, acertou todas as Questoes"   
+    
+    def respostasErradas(self):
+        if self.respoatasEr == "1":
+            return "Voce errou a questao 1"
+        elif self.respoatasEr == "2":
+            return "Voce errou a questao 2"
+        elif self.respoatasEr == "3":
+            return "Voce errou a questao 3"
+        elif self.respoatasEr == "4":
+            return "Voce errou a questao 1 e a questao 2"
+        elif self.respoatasEr == "5":
+            return "Voce errou a questao 2 e a questao 3"
+        elif self.respoatasEr == "6":
+            return "Voce errou a questao 1 e a questao 3"
+        elif self.respoatasEr == "0":
+            return ""
+        
+
+
+class ComandoRespotasEr(Comando):
+    def __init__(self,RespostasEr):
+        self._RespostasEr = RespostasEr
+
+    def executa(self):
+       return self._RespostasEr.respostasErradas()
 
 class ComandoRespotas(Comando):
     def __init__(self,numRespotasCertas) :
@@ -249,13 +275,6 @@ def teste(self):
             print("\n")
             resposta = input("qual a resposta correta? R: ")
             QuizTeste(Integer(resposta), i.resposta)
-
-
-historia = Quiz(history['id'],history['title'],ContentStorage.ReturnContentSpecifiedArq(Temas.Historia))
-matematica = Quiz(math['id'], math['title'], ContentStorage.ReturnContentSpecifiedArq(Temas.Matematica))
-geografia = Quiz(geography['id'],geography['title'], ContentStorage.ReturnContentSpecifiedArq(Temas.Geografia))
-informatica = Quiz(computing['id'],computing['title'], ContentStorage.ReturnContentSpecifiedArq(Temas.Informatica))
-mundo = Quiz(world['id'],world['title'], ContentStorage.ReturnContentSpecifiedArq(Temas.Mundo))
 
  
 

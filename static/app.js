@@ -9,10 +9,14 @@ let menuButton = document.getElementById('menuButton')
 let proxButton = document.getElementById('proxButton')
 let perguntaAtual = 1;
 let contador = 0;
+let lista = [];
+let perguntaID;
+let variavel=0;
 let numRespostasCertas = 0;
 let selectedOptionElement = null
 let quiz = null;
 let result= null;
+let respostaEr= null
 
 mathButton.addEventListener('click', function(ev){
     getQuiz("Matematica")
@@ -65,7 +69,9 @@ proxButton.addEventListener('click', function(ev){
     if(contador > 0){
         numRespostasCertas++;
     }
-    console.log(numRespostasCertas)
+    if(perguntaID != 0){
+        lista.push(perguntaID)
+    }
     buildQuiz()
 })
 
@@ -82,6 +88,7 @@ function buildQuiz(){
     console.log(quiz)
     containerQuiz.innerHTML= ""
     contador = 0;
+    variavel=0;
     menuButton.classList.add('btn','btn-secondary')
         const resultContainer = document.createElement('div');
         const titleQuiz = document.createElement('h1');
@@ -90,6 +97,7 @@ function buildQuiz(){
         containerQuiz.classList.add('Quiz')
         
         if(perguntaAtual == 4){
+            console.log(lista)
             resultContainer.classList.add('resultado')
             var dadosResult = $.post('/resultado', {"resultado":numRespostasCertas})
             dadosResult.done(function(String){
@@ -103,6 +111,38 @@ function buildQuiz(){
                 resultContainer.appendChild(acertos)
 
             })
+            var i;
+            for(i= 0 ; i<lista.length; i++){
+                if(lista[i] == 1 && lista.length == 1){
+                    variavel = 1
+                }
+                if(lista[i] == 2 && lista.length == 1){
+                    variavel = 2
+                }
+                if(lista[i] == 3 && lista.length == 1){
+                    variavel = 3
+                }
+                if(lista[i] == 1 && lista[i+1] == 2 && lista.length == 2){
+                    variavel = 4
+                }
+                if(lista[i] == 2 && lista[i+1] == 3 && lista.length == 2){
+                    variavel = 5
+                }
+                if(lista[i] == 1 && lista[i+1] == 3 && lista.length == 2){
+                    variavel = 6
+                }
+            }
+
+            console.log(variavel)
+            var respostaER = $.post('/respostasErradas', {"respostasErradas":variavel})
+            respostaER.done(function(String2){ 
+                respostaEr = String2;
+                const str = document.createElement('h3')
+                str.textContent = respostaEr 
+                resultContainer.appendChild(str)
+                lista = []
+            })
+                   
             
         }else{
             resultContainer.classList.add('hide')
@@ -151,8 +191,10 @@ function buildQuiz(){
                     newContainerQuestionOption.classList.add('container-color-option')
                     if(option.id == pergunta.resposta){
                         contador = 1
+                        perguntaID = 0
                     } else{
                         contador = 0;
+                        perguntaID = pergunta.id
                     }
    
                 })
