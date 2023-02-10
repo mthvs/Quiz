@@ -97,20 +97,19 @@ function buildQuiz(){
         containerQuiz.classList.add('Quiz')
         
         if(perguntaAtual == 4){
-            console.log(lista)
+            const str2 = document.createElement('h3');
+            const str =  document.createElement('h3');
+            const acertos = document.createElement('h3')
             resultContainer.classList.add('resultado')
             var dadosResult = $.post('/resultado', {"resultado":numRespostasCertas})
             dadosResult.done(function(String){
                 result = String;
-                const str = document.createElement('h3')
                 str.classList.add('format')
                 str.textContent = result
-                resultContainer.appendChild(str)
-                const acertos = document.createElement('h3')
                 acertos.textContent = numRespostasCertas+'/3'
-                resultContainer.appendChild(acertos)
-
             })
+            resultContainer.appendChild(str)
+            resultContainer.appendChild(acertos)
             var i;
             for(i= 0 ; i<lista.length; i++){
                 if(lista[i] == 1 && lista.length == 1){
@@ -133,16 +132,13 @@ function buildQuiz(){
                 }
             }
 
-            console.log(variavel)
             var respostaER = $.post('/respostasErradas', {"respostasErradas":variavel})
             respostaER.done(function(String2){ 
                 respostaEr = String2;
-                const str = document.createElement('h3')
-                str.textContent = respostaEr 
-                resultContainer.appendChild(str)
+                str2.textContent = respostaEr 
                 lista = []
             })
-                   
+            resultContainer.appendChild(str2)
             
         }else{
             resultContainer.classList.add('hide')
@@ -151,7 +147,6 @@ function buildQuiz(){
         quiz.perguntas.forEach(function(pergunta, indice){
             const questionContainer = document.createElement('div');
         
-
 
             if(pergunta.id != perguntaAtual){
                 questionContainer.classList.add('hide')
